@@ -4,11 +4,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>내가 만든 쿠키</title>
+    <title>내가 만든 챗봇</title>
 
     <!-- OG 태그: SNS 공유 미리보기 정보 -->
-    <meta property="og:title" content="너를 위해 구웠지">
-    <meta property="og:description" content="Gemini 2.0 Flash로 구현한 챗봇">
+    <meta property="og:title" content="내가 만든 쿠키">
+    <meta property="og:description" content="너를 위해 구웠지">
 
     <style>
         @font-face {
