@@ -1,49 +1,88 @@
-<%@ page contentType="text/html; charset-UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!-- [1] 한글사용 가능하게 설정 -->
-<!Document html>
-
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>내가 만든 쿠키</title>
+<head>
+    <meta charset="UTF-8">
+    <title>내가 만든 쿠키</title>
 
-        <!-- OG 태그(Open Graph 태그)는 웹페이지를 **SNS나 메신저에서 링크로 공유할 때 미리보기 정보(썸네일, 제목, 설명 등)**를 보여주기 위해 사용하는 메타태그야.-->
-        <meta property="og:title" content="너를 위해 구웠지">
-        <meta property="og:description" content"Gemini 2.0 Flash로 구현한 챗봇">
+    <!-- OG 태그: SNS 공유 미리보기 정보 -->
+    <meta property="og:title" content="너를 위해 구웠지">
+    <meta property="og:description" content="Gemini 2.0 Flash로 구현한 챗봇">
 
-        <style>
-            @font-face {
-                font-family: 'NEXON Lv1 Gothic OTF';
-                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
+    <style>
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON%20Lv1%20Gothic%20OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
+
         body {
             font-family: 'NEXON Lv1 Gothic OTF';
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        </style>
 
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
 
-    </head>
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-    <body>
+        p {
+            margin: 10px 0;
+            color: #444;
+        }
 
-        <h2>야호</h2>
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
 
-        <p>
-            질문 : <%= request.getAttribute("question") %>
-        </p>
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #5c7cfa;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-        <p>
-            <!-- [2] req(request)안에 set된 'data'라는 attribute가 있다면 출력-->
-            답변 : <%= request.getAttribute("data") %> <!-- 값을 출력해주는 문법 -->
-        </p>
+        button:hover {
+            background-color: #4263eb;
+        }
+    </style>
+</head>
 
-        <!-- 1) -->
+<body>
+    <div class="container">
+        <h2>🙋질문하세요</h2>
+
+        <p>질문: <%= request.getAttribute("question") %></p>
+        <p>답변: <%= request.getAttribute("data") %></p>
+
         <form method="post">
-            <input name="question">
+            <input name="question" placeholder="질문을 입력하세요">
+            <br>
             <button>질문하기</button>
         </form>
-
-    </body>
+    </div>
+</body>
 </html>
