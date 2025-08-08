@@ -22,7 +22,9 @@ public class AIServlet extends HttpServlet { // [1]
     @Override // [3]
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)  //그냥 doGet 바로 자동완성 됨
         throws ServletException, IOException {
-        Dotenv dotenv = Dotenv.load();
+
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+        // .env 파일이 없으면 에러가 생김.배포환경에는 .env가 없는데? -> 위의 코드를 추가하면됨.없으면 무시하라는 뜻.
         String apikey = dotenv.get("GOOGLE_API_KEY"); // [7]
         // [8] resources 안에 .env를 꼭 만들어야함.
 
@@ -50,7 +52,7 @@ public class AIServlet extends HttpServlet { // [1]
 
 
         // 2)
-        Dotenv dotenv = Dotenv.load();
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
         String apikey = dotenv.get("GOOGLE_API_KEY");
 
 
