@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>테스트 페이지</title>
+    <title>야호</title>
 </head>
 <body>
 <h2>ㅎㅇ</h2>
